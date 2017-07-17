@@ -24,7 +24,15 @@ namespace DemoFirstAppMVC.Controllers
         [HttpPost]
         public ViewResult RsvpForm(GuestRespone guest_respone)
         {
-            return View("Thanks", guest_respone);
+            if (ModelState.IsValid)
+            {
+                return View("Thanks", guest_respone);
+            }
+            else
+            {
+                return View();
+            }
+
         }
     }
 }
