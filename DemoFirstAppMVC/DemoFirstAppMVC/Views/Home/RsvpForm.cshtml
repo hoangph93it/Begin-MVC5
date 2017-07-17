@@ -1,0 +1,30 @@
+﻿@model DemoFirstAppMVC.Models.GuestRespone
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>RsvpForm</title>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        <p>Your name: @Html.TextBoxFor(x => x.Name)</p>
+        <p>Your email:@Html.TextBoxFor(x => x.Email)</p>
+        <p>Your phone:@Html.TextBoxFor(x => x.Phone)</p>
+        <p>
+            Your Attend:
+            @Html.DropDownListFor(x => x.WillAtend, new[] {
+           new SelectListItem() {Text="Yes, I'll be there.",Value= bool.TrueString },
+           new SelectListItem() {Text="No, I'm bussy." ,Value=bool.FalseString}
+       }, "Choose an option")
+            <input type="submit" name="name" value="Submit RSVP" />
+        </p>
+    }
+</body>
+</html>
