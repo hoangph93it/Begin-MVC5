@@ -1,0 +1,44 @@
+﻿body {
+    background-color: #eee;
+}
+
+$text-color: #fff;
+$bg-color: #fee;
+$color-error: #f00;
+$font-error: bold;
+$error-display: none;
+$border-error: 1px solid;
+
+.field-validation-error {
+    color: $color-error;
+}
+
+.field-validation-valid {
+    display: $error-display;
+}
+
+.input-validation-error {
+    border: $border-error $color-error $bg-color;
+}
+
+.validation-summary-errors {
+    font-weight: $font-error;
+    color: $color-error;
+}
+
+.validation-summary-valid {
+    display: $error-display;
+}
+
+.txt-btn {
+    text-decoration: $error-display;
+    color: $text-color;
+}
+
+.btn-rsvp a {
+    @extend .txt-btn;
+
+    &:hover {
+        @extend .txt-btn;
+    }
+}

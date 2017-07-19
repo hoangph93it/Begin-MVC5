@@ -10,22 +10,42 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>RsvpForm</title>
+    <link href="~/Content/demo.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
-    @using (Html.BeginForm())
-    {
-        @Html.ValidationSummary()
-        <p>Your name: @Html.TextBoxFor(x => x.Name)</p>
-        <p>Your email:@Html.TextBoxFor(x => x.Email)</p>
-        <p>Your phone:@Html.TextBoxFor(x => x.Phone)</p>
-        <p>
-            Your Attend:
-            @Html.DropDownListFor(x => x.WillAtend, new[] {
+    <div class="panel panel-success">
+        <div class="panel-heading text-center">
+            <h4>RSVP</h4>
+        </div>
+        <div class="panel-body">
+            @using (Html.BeginForm())
+            {
+                @Html.ValidationSummary()
+                <div class="form-group">
+                    <label>Your name:</label>
+                    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label>Your email:</label>
+                    @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label>Your phone:</label>
+                    @Html.TextBoxFor(x => x.Phone, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label>Your Attend:</label>
+                    @Html.DropDownListFor(x => x.WillAtend, new[] {
            new SelectListItem() {Text="Yes, I'll be there.",Value= bool.TrueString },
            new SelectListItem() {Text="No, I'm bussy." ,Value=bool.FalseString}
-       }, "Choose an option")
-            <input type="submit" name="name" value="Submit RSVP" />
-        </p>
-    }
+       }, "Choose an option", new { @class = "form-control" })
+                </div>
+                <div class="text-center">
+                    <input type="submit" class="btn btn-lg btn-success" name="name" value="Submit RSVP" />
+                </div>
+            }
+        </div>
+    </div>
 </body>
 </html>

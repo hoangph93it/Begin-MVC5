@@ -9,13 +9,18 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
+    <link href="~/Content/demo.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
     <div>
-        @*Hello MVC(from the view)*@
-        @ViewBag.Get_Hour The World(from the view).
-        <p>We're going to have an exciting party. Come to us!</p>
-        @Html.ActionLink("RSVP Now", "RsvpForm");
+        <div class="text-center">
+            <h1>We're going to have an exciting party.</h1>
+            <h2>Come to us!</h2>
+            <div class="btn btn-lg btn-success btn-rsvp">
+                @Html.ActionLink("RSVP Now", "RsvpForm")
+            </div>
+        </div>
     </div>
 </body>
 </html>

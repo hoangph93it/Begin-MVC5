@@ -1,0 +1,24 @@
+body {
+  background-color: #eee; }
+
+.field-validation-error {
+  color: #f00; }
+
+.field-validation-valid {
+  display: none; }
+
+.input-validation-error {
+  border: 1px solid #f00 #fee; }
+
+.validation-summary-errors {
+  font-weight: bold;
+  color: #f00; }
+
+.validation-summary-valid {
+  display: none; }
+
+.txt-btn, .btn-rsvp a, .btn-rsvp a:hover {
+  text-decoration: none;
+  color: #fff; }
+
+/*# sourceMappingURL=demo.css.map */
