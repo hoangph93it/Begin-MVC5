@@ -1,0 +1,11 @@
+﻿body {
+}
+
+$padding_20: 20px;
+$font_size_20: 20pt;
+
+.render-body {
+    padding: $padding_20;
+    border: solid medium black;
+    font-size: $font_size_20;
+}
