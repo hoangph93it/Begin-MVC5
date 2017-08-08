@@ -1,0 +1,16 @@
+﻿body {
+}
+
+$posi_absolute: absolute;
+$bottom_zero: 0;
+$left_padding_20: 20px;
+
+.footer {
+    position: $posi_absolute;
+    height: 50px;
+    bottom: $bottom_zero;
+}
+
+.left-padding-20 {
+    padding-left: $left_padding_20;
+}

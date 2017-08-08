@@ -1,0 +1,35 @@
+﻿@model web.ui.Models.CardIndexViewModel
+
+@{
+    ViewBag.Title = "Support store: Your Card";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>Quantity</th>
+            <th>Item</th>
+            <td class="text-right">Price</td>
+            <th class="text-right">Subtotal</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Cart.Lines)
+        {
+            <tr>
+                <td class="text-center">@item.Quantity</td>
+                <td class="text-left">@item.Bean.Name</td>
+                <td class="text-right">@item.Bean.Price</td>
+                <td class="text-right">@(item.Quantity * item.Bean.Price) đ</td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3" class="text-right">Tổng tiền:</td>
+            <td class="text-right">
+                @Model.Cart.TotalCart();
+            </td>
+        </tr>
+    </tfoot>
+</table>

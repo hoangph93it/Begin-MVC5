@@ -1,0 +1,16 @@
+﻿@model domain.Entities.Bean
+<div class="well">
+    <h3>
+        <strong>@Model.Name</strong>
+        <span class="pull-right label label-primary">@Model.Price đ</span>
+    </h3>
+    @using (Html.BeginForm("AddToCard", "Card"))
+    {
+        <div class="pull-right">
+            @Html.HiddenFor(b => b.ID)
+            @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+            <input type="submit" class="btn btn-default btn-primary" value="Add to card" />
+        </div>
+    }
+    <span class="lead">@Model.Description</span>
+</div>

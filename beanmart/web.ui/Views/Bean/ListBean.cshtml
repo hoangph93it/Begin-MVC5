@@ -1,0 +1,21 @@
+﻿@model web.ui.Models.ProductsListViewModel
+@using web.ui.HtmlHelpers
+@{
+    ViewBag.Title = "List Bean";
+}
+
+<h2>List Bean</h2>
+@if (Model != null)
+{
+    foreach (var item in Model.Beans)
+    {
+        @Html.Partial("ProductSummary", item)
+    }
+    <div class="btn-group pull-right">
+        @Html.PageLinks(Model.PagingInfo, x => Url.Action("ListBean", new { page = x, category = Model.CurrentCategory }))
+    </div>
+}
+else
+{
+    <h2>No bean data!</h2>
+}
