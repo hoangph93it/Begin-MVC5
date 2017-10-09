@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<style>
+    .link-css {
+        color: red;
+    }
+</style>
+<h2>Index</h2>
+<div>The Controller is: @ViewBag.Controller</div>
+<div>The Action is:  @ViewBag.Action</div>
+<div>The content of Controller is: @ViewBag.ControllerContent</div>
+<div>@Html.ActionLink("This is an outgoing URL", "CustomController")</div>
+<div>@Html.ActionLink("This is Url from another Controller", "Index", "Customer")</div>
+<div>@Html.ActionLink("This is Url from another Controller with an id.", "CustomController", new { id = "HoangPH" })</div>
+<div>@Html.ActionLink("This is Url from another Controller with an id.", "Index", "Customer", null, new { id = "HoangPH", @class = "link-css" })</div>
+<div>@Url.Action("Index", "Customer", new { id = "HoangPH" })</div>
+<div>@Html.ActionLink("This is an outgoing URL using URL in Action Method", "MyActionMethod")</div>
