@@ -32,15 +32,15 @@ namespace Controller_Action.Controllers
         [ActionName("SearchProduct")]
         public ViewResult GetProductByName()
         {
-            IList<Product> Product_Search = ProductList.GetAllProduct();
-            return View(Product_Search);
+            IList<Product> Products = ProductList.GetAllProduct();
+            return View(Products);
         }
         [HttpPost]
         [ActionName("SearchProduct")]
-        public ViewResult GetProductByName(string pro_name)
+        public ViewResult GetProductByName(string ProductName)
         {
-            IList<Product> Product_Search = ProductList.GetProductByName(pro_name);
-            return View(Product_Search);
+            IList<Product> Products = ProductList.GetProductByName(ProductName);
+            return View(Products);
         }
     }
 }

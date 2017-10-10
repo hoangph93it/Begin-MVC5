@@ -1,0 +1,23 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary()
+            <p><label>User name:</label><input type="text" name="username" value="" /></p>
+            <p><label>Password:</label><input type="password" name="password" value="" /></p>
+            <input type="submit" name="name" value="Login" />
+        }
+    </div>
+</body>
+</html>

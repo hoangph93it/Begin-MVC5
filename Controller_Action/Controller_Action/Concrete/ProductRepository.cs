@@ -50,15 +50,15 @@ namespace Controller_Action.Concrete
             Product Products = this.Products.Where(p => p.ProductID == id).FirstOrDefault();
             return Products;
         }
-        public IList<Product> GetProductByName(string pro_name)
+        public IList<Product> GetProductByName(string ProductName)
         {
-            if (pro_name.Trim().Length == 0)
+            if (ProductName.Trim().Length == 0)
             {
                 return this.Products.Select(p => p).ToList();
             }
             else
             {
-                return this.Products.Where(p => p.ProductName.Contains(pro_name)).ToList();
+                return this.Products.Where(p => p.ProductName.Contains(ProductName)).ToList();
             }
         }
     }
