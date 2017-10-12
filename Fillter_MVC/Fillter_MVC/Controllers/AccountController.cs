@@ -21,7 +21,7 @@ namespace Fillter_MVC.Controllers
             if (result)
             {
                 FormsAuthentication.SetAuthCookie(name, false);
-                return Redirect(returnUrl ?? Url.Action("Index", "Admin"));
+                return Redirect(returnUrl ?? Url.Action("Index", "Home"));
             }
             else
             {
