@@ -13,7 +13,7 @@ namespace Views_MVC.Controllers
         {
             ViewBag.Message = "Hello Views in ASP.NET MVC";
             ViewBag.Time = DateTime.Now.ToShortTimeString();
-            return View("Debug Data");
+            return View("DebugData");
         }
         public ActionResult List()
         {

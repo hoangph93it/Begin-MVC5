@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using Views_MVC.Infrastructure;
 
 namespace Views_MVC
 {
@@ -13,6 +14,8 @@ namespace Views_MVC
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            ViewEngines.Engines.Clear();
+            ViewEngines.Engines.Add(new DebugDataViewEngine());
         }
     }
 }
