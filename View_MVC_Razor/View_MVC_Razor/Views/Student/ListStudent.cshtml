@@ -1,0 +1,29 @@
+﻿@model IEnumerable<View_MVC_Razor.Models.Student>
+@{
+    ViewBag.Title = "ListStudent";
+}
+
+<h2>ListStudent</h2>
+<p>@Html.ActionLink("Go to Home page", "Index", "Home")</p>
+<hr />
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Student ID</th>
+            <th>Student Name</th>
+            <th>Age</th>
+            <th>Address</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in ViewData["listStudent"] as IList<View_MVC_Razor.Models.Student>)
+            {
+            <tr>
+                <td>@item.StudentID</td>
+                <td>@item.StudentName</td>
+                <td>@item.Age</td>
+                <td>@item.Address</td>
+            </tr>
+        }
+    </tbody>
+</table>

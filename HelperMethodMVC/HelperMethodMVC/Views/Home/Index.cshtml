@@ -1,0 +1,37 @@
+﻿@model string
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<label class="label label-default">Here is list cities</label>
+<ul>
+    @foreach (string item in (string[])ViewBag.Cities)
+    {
+        <li>@item</li>
+    }
+</ul>
+<br />
+<label class="label label-default">Here is list Electrics</label>
+<ul>
+    @foreach (string item in (string[])ViewBag.Elictrics)
+    {
+        <li>@item</li>
+    }
+</ul>
+@helper ListArrayItems(string[] items)
+{
+    <ul>
+        @foreach (string item in items)
+        {
+            <li>@item</li>
+        }
+    </ul>
+}
+<label class="label label-danger">This is list of Cities</label>
+<div>@ListArrayItems(ViewBag.Cities)</div>
+<br />
+<label class="label label-danger">This is list of Electric</label>
+<div>@ListArrayItems(ViewBag.Elictrics)</div>
+<br />
+<label class="label label-info">@Model</label>

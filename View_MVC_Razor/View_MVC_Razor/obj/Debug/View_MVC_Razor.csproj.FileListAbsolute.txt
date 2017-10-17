@@ -41,6 +41,5 @@ D:\MVC\Begin-MVC5\View_MVC_Razor\View_MVC_Razor\bin\System.Web.Webpages.Deployme
 D:\MVC\Begin-MVC5\View_MVC_Razor\View_MVC_Razor\bin\System.Web.Webpages.Razor.xml
 D:\MVC\Begin-MVC5\View_MVC_Razor\View_MVC_Razor\bin\System.Web.Helpers.xml
 D:\MVC\Begin-MVC5\View_MVC_Razor\View_MVC_Razor\bin\System.Web.Mvc.xml
-D:\MVC\Begin-MVC5\View_MVC_Razor\View_MVC_Razor\obj\Debug\View_MVC_Razor.csprojResolveAssemblyReference.cache
 D:\MVC\Begin-MVC5\View_MVC_Razor\View_MVC_Razor\obj\Debug\View_MVC_Razor.dll
 D:\MVC\Begin-MVC5\View_MVC_Razor\View_MVC_Razor\obj\Debug\View_MVC_Razor.pdb

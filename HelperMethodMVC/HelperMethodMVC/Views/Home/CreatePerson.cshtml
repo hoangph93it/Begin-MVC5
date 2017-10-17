@@ -1,0 +1,133 @@
+﻿@model HelperMethodMVC.Models.Person
+@{
+    ViewBag.Title = "CreatePerson";
+}
+
+<h2>CreatePerson</h2>
+<form action="/Home/CreatePerson" method="post" class="form-horizontal">
+    <div class="form-group row">
+        <label class="control-label col-sm-2">Person ID:</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" value="@Model.PersonID" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="control-label col-sm-2">First Name:</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" value="@Model.FirstName" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="control-label col-sm-2">Last Name:</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" value="@Model.LastName" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="control-label col-sm-2">Date of Birth:</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" value="@Model.DOB" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="control-label col-sm-2">Home Address:</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" value="@Model.HomeAddress" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="control-label col-sm-2">Role:</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" value="@Model.Role" />
+        </div>
+    </div>
+    <div class="form-group">
+        <input type="submit" class="btn btn-primary" value="Submit" />
+    </div>
+</form>
+<hr />
+<h2>Using Html.BeginForm() va Html.EndForm </h2>
+@{Html.BeginForm(new { @class = "form-horizontal" });}
+<div class="form-group row">
+    <label class="control-label col-sm-2">Person ID:</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" value="@Model.PersonID" />
+    </div>
+</div>
+<div class="form-group row">
+    <label class="control-label col-sm-2">First Name:</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" value="@Model.FirstName" />
+    </div>
+</div>
+<div class="form-group row">
+    <label class="control-label col-sm-2">Last Name:</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" value="@Model.LastName" />
+    </div>
+</div>
+<div class="form-group row">
+    <label class="control-label col-sm-2">Date of Birth:</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" value="@Model.DOB" />
+    </div>
+</div>
+<div class="form-group row">
+    <label class="control-label col-sm-2">Home Address:</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" value="@Model.HomeAddress" />
+    </div>
+</div>
+<div class="form-group row">
+    <label class="control-label col-sm-2">Role:</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" value="@Model.Role" />
+    </div>
+</div>
+<div class="form-group">
+    <input type="submit" class="btn btn-primary" value="Submit" />
+</div>
+@{ Html.EndForm();}
+<h2>Using Form auto close</h2>
+@using (Html.BeginForm())
+{
+    <div class="form-group row">
+        <label class="control-label col-sm-2">Person ID:</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" value="@Model.PersonID" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="control-label col-sm-2">First Name:</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" value="@Model.FirstName" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="control-label col-sm-2">Last Name:</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" value="@Model.LastName" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="control-label col-sm-2">Date of Birth:</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" value="@Model.DOB" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="control-label col-sm-2">Home Address:</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" value="@Model.HomeAddress" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="control-label col-sm-2">Role:</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" value="@Model.Role" />
+        </div>
+    </div>
+    <div class="form-group">
+        <input type="submit" class="btn btn-primary" value="Submit" />
+    </div>
+}

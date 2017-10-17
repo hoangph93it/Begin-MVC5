@@ -12,10 +12,19 @@ namespace View_MVC_Razor.Controllers
         public ActionResult Index()
         {
             string[] fruits = { "Orange", "Apple", "Pear", "Tomato" };
+
             return View(fruits);
         }
         public ActionResult List()
         {
+            ViewData["Name"] = "Phan Huu Hoang";
+            ViewData["Job"] = "Coder";
+            return View();
+        }
+        public ActionResult About()
+        {
+            ViewData["Name"] = "Phan Huu Hoang";
+            ViewData["Email"] = "hoangse.vp@gmail.com";
             return View();
         }
         [ChildActionOnly]

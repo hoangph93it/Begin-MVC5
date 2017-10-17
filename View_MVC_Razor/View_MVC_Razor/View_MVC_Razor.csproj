@@ -134,10 +134,13 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\StudentController.cs" />
+    <Compile Include="Controllers\TempDataController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\CustomLocationViewEngine.cs" />
+    <Compile Include="Models\Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -157,6 +160,11 @@
     <Content Include="Views\Shared\MyPartial.cshtml" />
     <Content Include="Views\Shared\MyStronglyTypedPartial.cshtml" />
     <Content Include="Views\Home\Time.cshtml" />
+    <Content Include="Views\Student\ListStudent.cshtml" />
+    <Content Include="Views\Student\UsingViewBag.cshtml" />
+    <Content Include="Views\TempData\About.cshtml" />
+    <Content Include="Views\Shared\HeaderPartial.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -166,7 +174,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
