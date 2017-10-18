@@ -131,3 +131,197 @@
         <input type="submit" class="btn btn-primary" value="Submit" />
     </div>
 }
+<hr />
+<h2>Using Html.BeginRouteForm()</h2>
+@using (Html.BeginRouteForm("FormRoute", new { }, FormMethod.Post, new { @class = "form-horizontal", data_formType = "person" }))
+{
+    <div class="form-group row">
+        <label class="control-label col-sm-2">Person ID:</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" value="@Model.PersonID" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="control-label col-sm-2">First Name:</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" value="@Model.FirstName" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="control-label col-sm-2">Last Name:</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" value="@Model.LastName" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="control-label col-sm-2">Date of Birth:</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" value="@Model.DOB" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="control-label col-sm-2">Home Address:</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" value="@Model.HomeAddress" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="control-label col-sm-2">Role:</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" value="@Model.Role" />
+        </div>
+    </div>
+    <div class="form-group">
+        <input type="submit" class="btn btn-primary" value="Submit" />
+    </div>
+}
+<hr />
+<h2>Using basic HTML Element Input Helper Method</h2>
+@using (Html.BeginRouteForm("FormRoute", new { }, FormMethod.Post, new { @class = "form-horizontal", data_formType = "person" }))
+{
+    <div class="form-group row">
+        <label class="control-label col-sm-2">Person ID:</label>
+        <div class="col-sm-10">
+            @Html.TextBox("PersonID", @Model.PersonID, new { @class = "form-control" })
+            @*<input type="text" class="form-control" value="@Model.PersonID" />*@
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="control-label col-sm-2">First Name:</label>
+        <div class="col-sm-10">
+            @Html.TextBox("FirstName", @Model.FirstName, new { @class = "form-control" })
+            @*<input type="text" class="form-control" value="@Model.FirstName" />*@
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="control-label col-sm-2">Last Name:</label>
+        <div class="col-sm-10">
+            @Html.TextBox("LastName", @Model.LastName, new { @class = "form-control" })
+            @*<input type="text" class="form-control" value="@Model.LastName" />*@
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="control-label col-sm-2">Date of Birth:</label>
+        <div class="col-sm-10">
+            @Html.TextBox("DOB", @Model.DOB, new { @class = "form-control" })
+            @*<input type="text" class="form-control" value="@Model.DOB" />*@
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="control-label col-sm-2">Home Address:</label>
+        <div class="col-sm-10">
+            @Html.TextBox("HomeAddress", @Model.HomeAddress, new { @class = "form-control" })
+            @*<input type="text" class="form-control" value="@Model.HomeAddress" />*@
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="control-label col-sm-2">Role:</label>
+        <div class="col-sm-10">
+            @Html.TextBox("Role", @Model.Role, new { @class = "form-control" })
+            @*<input type="text" class="form-control" value="@Model.Role" />*@
+        </div>
+    </div>
+    <div class="form-group">
+        <input type="submit" class="btn btn-primary" value="Submit" />
+    </div>
+}
+<hr />
+<h2>Using HTML Input Helper Stronger</h2>
+@using (Html.BeginForm())
+{
+    <div class="form-group row">
+        <label class="control-label col-sm-2">Person ID:</label>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(x => x.PersonID, new { @class = "form-control" })
+            @*<input type="text" class="form-control" value="@Model.PersonID" />*@
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="control-label col-sm-2">First Name:</label>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control" })
+            @*<input type="text" class="form-control" value="@Model.FirstName" />*@
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="control-label col-sm-2">Last Name:</label>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(x => x.LastName, new { @class = "form-control" })
+            @*<input type="text" class="form-control" value="@Model.LastName" />*@
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="control-label col-sm-2">Date of Birth:</label>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(x => x.DOB, new { @class = "form-control" })
+            @*<input type="text" class="form-control" value="@Model.DOB" />*@
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="control-label col-sm-2">Home Address:</label>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(x => x.HomeAddress, new { @class = "form-control" })
+            @*<input type="text" class="form-control" value="@Model.HomeAddress" />*@
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="control-label col-sm-2">Role:</label>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(x => x.Role, new { @class = "form-control" })
+            @*<input type="text" class="form-control" value="@Model.Role" />*@
+        </div>
+    </div>
+    <div class="form-group">
+        <input type="submit" class="btn btn-primary" value="Submit" />
+    </div>
+}
+<hr />
+<h2>Tạo phần tử Select cho tùy chỉnh Person.Role trong file CreatePerson.cshtml</h2>
+@using (Html.BeginForm())
+{
+    <div class="form-group row">
+        <label class="control-label col-sm-2">Person ID:</label>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(x => x.PersonID, new { @class = "form-control" })
+            @*<input type="text" class="form-control" value="@Model.PersonID" />*@
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="control-label col-sm-2">First Name:</label>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control" })
+            @*<input type="text" class="form-control" value="@Model.FirstName" />*@
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="control-label col-sm-2">Last Name:</label>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(x => x.LastName, new { @class = "form-control" })
+            @*<input type="text" class="form-control" value="@Model.LastName" />*@
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="control-label col-sm-2">Date of Birth:</label>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(x => x.DOB, new { @class = "form-control" })
+            @*<input type="text" class="form-control" value="@Model.DOB" />*@
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="control-label col-sm-2">Home Address:</label>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(x => x.HomeAddress, new { @class = "form-control" })
+            @*<input type="text" class="form-control" value="@Model.HomeAddress" />*@
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="control-label col-sm-2">Role:</label>
+        <div class="col-sm-10">
+            @Html.DropDownListFor(x => x.Role, new SelectList(Enum.GetNames(typeof(HelperMethodMVC.Models.Roles))), new { @class = "form-control" })
+            @*<input type="text" class="form-control" value="@Model.Role" />*@
+        </div>
+    </div>
+    <div class="form-group">
+        <input type="submit" class="btn btn-primary" value="Submit" />
+    </div>
+}
