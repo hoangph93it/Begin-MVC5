@@ -1,0 +1,96 @@
+﻿@model TemplateHelpMethod.Models.Person
+@{
+    ViewBag.Title = "CreatePersons";
+    Html.EnableClientValidation(false);
+}
+
+<h2>CreatePersons</h2>
+@using (Html.BeginForm())
+{
+    <div class="form-group row">
+        <label class="control-label col-sm-2">Person ID:</label>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(x => x.PersonID, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="control-label col-sm-2">First Name:</label>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="control-label col-sm-2">Last Name:</label>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(x => x.LastName, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="control-label col-sm-2">Date of Birth:</label>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(x => x.DOB, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="control-label col-sm-2">Home Address:</label>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(x => x.HomeAddress, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="control-label col-sm-2">Role:</label>
+        <div class="col-sm-10">
+            @Html.DropDownListFor(x => x.Role, new SelectList(Enum.GetNames(typeof(TemplateHelpMethod.Models.Roles))), new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        <input type="submit" class="btn btn-primary" value="Submit" />
+    </div>
+}
+<hr />
+<h2> Sử dụng helper method Editor và EditorFor trong file CreatePerson.cshtml</h2>
+@using (Html.BeginForm())
+{
+    <div class="form-group row">
+        <label class="control-label col-sm-2">Person ID:</label>
+        <div class="col-sm-10">
+            @Html.Editor("PersonID")
+            @*@Html.TextBoxFor(x => x.PersonID, new { @class = "form-control" })*@
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="control-label col-sm-2">First Name:</label>
+        <div class="col-sm-10">
+            @Html.Editor("FirstName")
+            @*@Html.TextBoxFor(x => x.FirstName, new { @class = "form-control" })*@
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="control-label col-sm-2">Last Name:</label>
+        <div class="col-sm-10">
+            @Html.EditorFor(x => x.LastName)
+            @*@Html.TextBoxFor(x => x.LastName, new { @class = "form-control" })*@
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="control-label col-sm-2">Date of Birth:</label>
+        <div class="col-sm-10">
+            @Html.EditorFor(x => x.DOB)
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="control-label col-sm-2">Home Address:</label>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(x => x.HomeAddress, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="control-label col-sm-2">Role:</label>
+        <div class="col-sm-10">
+            @Html.DropDownListFor(x => x.Role, new SelectList(Enum.GetNames(typeof(TemplateHelpMethod.Models.Roles))), new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        <input type="submit" class="btn btn-primary" value="Submit" />
+    </div>
+}
