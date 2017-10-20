@@ -94,3 +94,10 @@
         <input type="submit" class="btn btn-primary" value="Submit" />
     </div>
 }
+<hr />
+<h2>Sử dụng các Scaffolding Helper Method trong file CreatePerson.cshtml @Html.LabelForModel()</h2>
+@using (Html.BeginForm())
+{
+    @Html.EditorForModel()
+    <input type="submit" name="name" class="btn btn-success" value="Submit" />
+}

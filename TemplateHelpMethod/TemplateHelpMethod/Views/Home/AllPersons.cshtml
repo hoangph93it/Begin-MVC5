@@ -1,36 +1,58 @@
-﻿@model  TemplateHelpMethod.Models.Person
+﻿@model IEnumerable<TemplateHelpMethod.Models.Person>
+
 @{
     ViewBag.Title = "AllPersons";
 }
 
 <h2>AllPersons</h2>
-<div class="form-group row">
-    @Html.LabelFor(p => p.FirstName, new { @class = "label label-default" })
-    <div class="col-sm-10">
-        @Html.DisplayFor(p => p.FirstName, new { @class = "label label-success" })
-    </div>
-</div>
-<div class="form-group row">
-    @Html.LabelFor(p => p.LastName, new { @class = "label label-default" })
-    <div class="col-sm-10">
-        @Html.DisplayFor(p => p.LastName, new { @class = "label label-success" })
-    </div>
-</div>
-<div class="form-group row">
-    @Html.LabelFor(p => p.DOB, new { @class = "label label-default" })
-    <div class="col-sm-10">
-        @Html.DisplayFor(p => p.DOB, new { @class = "label label-success" })
-    </div>
-</div>
-<div class="form-group row">
-    @Html.LabelFor(p => p.HomeAddress.Line1, new { @class = "label label-default" })
-    <div class="col-sm-10">
-        @Html.DisplayFor(p => p.HomeAddress.Line1, new { @class = "label label-success" })
-    </div>
-</div>
-<div class="form-group row">
-    @Html.LabelFor(p => p.Role, new { @class = "label label-default" })
-    <div class="col-sm-10">
-        @Html.DisplayFor(p => p.Role, new { @class = "label label-success" })
-    </div>
-</div>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DOB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Role)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.HomeAddress.Line1)
+        </th>*@
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DOB)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Role)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.HomeAddress.Line1)
+            </td>*@
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.PersonID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.PersonID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.PersonID })
+            </td>
+        </tr>
+    }
+
+</table>

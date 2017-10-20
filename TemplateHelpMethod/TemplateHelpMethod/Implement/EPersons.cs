@@ -17,12 +17,12 @@ namespace TemplateHelpMethod.Implement
                FirstName="Phan Huu",
                LastName="Hoang",
                DOB= "18/08/1993",
-               HomeAddress= {
-                 Line1="So 40, Thon Phu Chinh, Xa Tuan Chinh, Huyen Vinh Tuong, Tinh Vinh Phuc",
-                 Line2="So 28, Ngo 1, duong Van Tien Dung, Phuong Phuc Dien, Quan Nam Tu Liem, Tp.Ha Noi",
-                 City="Ha Noi",
-                 Country="Viet Nam"
-               },
+               //HomeAddress= {
+               //  Line1="So 40, Thon Phu Chinh, Xa Tuan Chinh, Huyen Vinh Tuong, Tinh Vinh Phuc",
+               //  Line2="So 28, Ngo 1, duong Van Tien Dung, Phuong Phuc Dien, Quan Nam Tu Liem, Tp.Ha Noi",
+               //  City="Ha Noi",
+               //  Country="Viet Nam"
+               //},
                Role= Roles.Admin
            },
            new Person()
@@ -31,12 +31,12 @@ namespace TemplateHelpMethod.Implement
                FirstName="Tran Kim",
                LastName="Phuoc",
                DOB= "27/01/1997",
-               HomeAddress= {
-                 Line1="So 40, Thon Phu Chinh, Xa Tuan Chinh, Huyen Vinh Tuong, Tinh Vinh Phuc",
-                 Line2="So 28, Ngo 1, duong Van Tien Dung, Phuong Phuc Dien, Quan Nam Tu Liem, Tp.Ha Noi",
-                 City="Ha Noi",
-                 Country="Viet Nam"
-               },
+               //HomeAddress= {
+               //  Line1="So 40, Thon Phu Chinh, Xa Tuan Chinh, Huyen Vinh Tuong, Tinh Vinh Phuc",
+               //  Line2="So 28, Ngo 1, duong Van Tien Dung, Phuong Phuc Dien, Quan Nam Tu Liem, Tp.Ha Noi",
+               //  City="Ha Noi",
+               //  Country="Viet Nam"
+               //},
                Role= Roles.User
            }
         };

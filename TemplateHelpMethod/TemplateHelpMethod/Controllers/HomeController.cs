@@ -18,8 +18,6 @@ namespace TemplateHelpMethod.Controllers
             return View();
         }
 
-        [ActionName("AllPersons")]
-        [HttpGet]
         public ViewResult AllPersons()
         {
             IList<Person> listPersons = List_Persons.GetAllPersons();

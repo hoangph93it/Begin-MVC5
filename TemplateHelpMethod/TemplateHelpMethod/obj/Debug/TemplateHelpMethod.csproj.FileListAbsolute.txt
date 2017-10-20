@@ -41,6 +41,6 @@ D:\MVC\Begin-MVC5\TemplateHelpMethod\TemplateHelpMethod\bin\System.Web.Webpages.
 D:\MVC\Begin-MVC5\TemplateHelpMethod\TemplateHelpMethod\bin\System.Web.Webpages.Razor.xml
 D:\MVC\Begin-MVC5\TemplateHelpMethod\TemplateHelpMethod\bin\System.Web.Helpers.xml
 D:\MVC\Begin-MVC5\TemplateHelpMethod\TemplateHelpMethod\bin\System.Web.Mvc.xml
-D:\MVC\Begin-MVC5\TemplateHelpMethod\TemplateHelpMethod\obj\Debug\TemplateHelpMethod.csprojResolveAssemblyReference.cache
 D:\MVC\Begin-MVC5\TemplateHelpMethod\TemplateHelpMethod\obj\Debug\TemplateHelpMethod.dll
 D:\MVC\Begin-MVC5\TemplateHelpMethod\TemplateHelpMethod\obj\Debug\TemplateHelpMethod.pdb
+D:\MVC\Begin-MVC5\TemplateHelpMethod\TemplateHelpMethod\obj\Debug\TemplateHelpMethod.csprojResolveAssemblyReference.cache
