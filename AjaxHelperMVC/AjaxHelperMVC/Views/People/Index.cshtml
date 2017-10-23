@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Basic link and Url</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Helper</th>
+            <th>Output</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Url.Content(/Content/Site.css)</td>
+            <td>@Url.Content("/Content/Site.css")</td>
+        </tr>
+        <tr>
+            <td>Html.ActionLink("My link","Index","Home")</td>
+            <td>@Html.ActionLink("My link", "Index", "Home")</td>
+        </tr>
+        <tr>
+            <td>Html.Action("GetPeople", "People")</td>
+            <td>@Html.Action("GetPeople", "People")</td>
+        </tr>
+        <tr>
+            <td>Url.RouteUrl(new{controller="People", action="GetPeople"})</td>
+            <td>@Url.RouteUrl(new { controller = "People", action = "GetPeople" })</td>
+        </tr>
+        <tr>
+            <td>Url.RouteUrl(new{controller="People", action="GetPeople"})</td>
+            <td>@Url.RouteUrl(new { controller = "People", action = "GetPeople" })</td>
+        </tr>
+        <tr>
+            <td>Html.RouteLink("My link", new {controller="People", action="GetPeople"})</td>
+            <td>@Html.RouteLink("My link", new { controller = "People", action = "GetPeople" })</td>
+        </tr>
+        <tr>
+            <td>Html.RouteLink("My link", "FormRoute" new {controller="People", action="GetPeople"})</td>
+            <td>@Html.RouteLink("My link", "FormRoute", new { controller = "People", action = "GetPeople" })</td>
+        </tr>
+    </tbody>
+</table>

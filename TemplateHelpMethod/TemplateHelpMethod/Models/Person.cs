@@ -13,6 +13,7 @@ namespace TemplateHelpMethod.Models
         [Display(Name = "Persion ID")]
         public int PersonID { get; set; }
         [Display(Name = "First Name")]
+        [UIHint("MultilineText")]
         public string FirstName { get; set; }
         [Display(Name = "Last Name")]
         public string LastName { get; set; }

@@ -1,0 +1,57 @@
+﻿
+@using AjaxHelperMVC.Models
+@model IEnumerable<Person>
+@{
+    ViewBag.Title = "GetPeople";
+}
+
+<h2>GetPeople</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>DOB</th>
+            <th>Address</th>
+            <th>Role</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ID</td>
+                <td>@item.Name</td>
+                <td>@item.Gender</td>
+                <td>@item.DOB</td>
+                <td>@item.Address</td>
+                <td>@item.Role</td>
+            </tr>
+        }
+        @if (Model.Count() == 0)
+        {
+            <tr>
+                <td>
+                    <label class="label label-danger">No people have been role is: @ViewData["Roleselected"]</label>
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        }
+    </tbody>
+</table>
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <div class="input-group">
+            @Html.DropDownList("SelectedRole", new SelectList(new[] { "All" }.Concat(Enum.GetNames(typeof(AjaxHelperMVC.Models.Roles)))), new { @class = "form-control" })
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="submit">Sort by role</button>
+            </span>
+        </div>
+    </div>
+}

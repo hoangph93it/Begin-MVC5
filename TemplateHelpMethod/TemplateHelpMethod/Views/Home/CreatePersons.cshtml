@@ -99,5 +99,7 @@
 @using (Html.BeginForm())
 {
     @Html.EditorForModel()
+    <br />
+    @Html.EditorFor(m=>m.HomeAddress)
     <input type="submit" name="name" class="btn btn-success" value="Submit" />
 }
