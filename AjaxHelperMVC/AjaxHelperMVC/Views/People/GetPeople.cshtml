@@ -1,11 +1,58 @@
 ﻿
 @using AjaxHelperMVC.Models
-@model IEnumerable<Person>
+@model string
 @{
     ViewBag.Title = "GetPeople";
-}
+    {
 
+    }
+    AjaxOptions ajaxOpts = new AjaxOptions
+    {
+        UpdateTargetId = "tbl_body",
+        Url = Url.Action("GetPeopleData"),
+        LoadingElementId = "loading",
+        LoadingElementDuration = 1000,
+        Confirm = "Do you want to request new data?"
+    };
+}
+<style type="text/css">
+    #loading {
+        display: none;
+    }
+
+        #loading img {
+            height: 15px;
+            width: 15px;
+        }
+</style>
+<script type="text/javascript">
+    //function OnBegin() {
+    //    alert("This is Onbegin callback");
+    //}
+    //function OnSuccess(data) {
+    //    alert("This is OnSuccess callback" + data);
+    //}
+    //function OnFailure(request, error) {
+    //    alert("This is OnFailureCallback" + error);
+    //}
+    //function OnComplete(request, status) {
+    //    alert("This is OnComplete callback" + status);
+    //}
+    function progessData(data) {
+        var target = $("#tbl_body");
+        target.empty();
+        for (var i = 0; i < data.length; i++) {
+            var person = data[i];
+            target.append("<tr><td>" + person.ID + "</td><td>" + person.Name + "</td><td>" + person.Gender + "</td><td>" + person.DOB + "</td><td>" + person.Address + "</td><td>" + person.Role + "</td></tr>")
+        }
+    }
+</script>
 <h2>GetPeople</h2>
+<div id="loading" class="row">
+    <img src="/Content/img/dual-ring-loader.gif" />
+    <span>Loading Data...</span>
+</div>
+<br />
 <table class="table table-bordered">
     <thead>
         <tr>
@@ -17,34 +64,35 @@
             <th>Role</th>
         </tr>
     </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@item.ID</td>
-                <td>@item.Name</td>
-                <td>@item.Gender</td>
-                <td>@item.DOB</td>
-                <td>@item.Address</td>
-                <td>@item.Role</td>
-            </tr>
-        }
-        @if (Model.Count() == 0)
-        {
-            <tr>
-                <td>
-                    <label class="label label-danger">No people have been role is: @ViewData["Roleselected"]</label>
-                </td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-        }
+    <tbody id="tbl_body">
+        @Html.Action("GetPeopleData", new { selectedRole = Model })
+        @*@foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.ID</td>
+                    <td>@item.Name</td>
+                    <td>@item.Gender</td>
+                    <td>@item.DOB</td>
+                    <td>@item.Address</td>
+                    <td>@item.Role</td>
+                </tr>
+            }
+            @if (Model.Count() == 0)
+            {
+                <tr>
+                    <td>
+                        <label class="label label-danger">No people have been role is: @ViewData["Roleselected"]</label>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            }*@
     </tbody>
 </table>
-@using (Html.BeginForm())
+@using (Ajax.BeginForm(ajaxOpts))
 {
     <div class="row">
         <div class="input-group">
@@ -55,3 +103,17 @@
         </div>
     </div>
 }
+<div>
+    @foreach (var role in Enum.GetNames(typeof(AjaxHelperMVC.Models.Roles)))
+    {
+        <div class="btn btn-default">
+            @Ajax.ActionLink(role, "GetPeopleData", new { selectedRole = role }, new AjaxOptions
+       { @*UpdateTargetId = "tbl_body",*@ Url = Url.Action("GetPeopleDataJson", new { selectedRole = role }),
+           //OnBegin = "OnBegin",
+           OnSuccess = "progessData"
+           //OnFailure = "OnFailure",
+           //OnComplete = "OnComplete"
+       })
+        </div>
+    }
+</div>

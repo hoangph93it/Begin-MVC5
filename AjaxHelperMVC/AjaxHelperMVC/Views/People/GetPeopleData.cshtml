@@ -1,0 +1,26 @@
+﻿@using AjaxHelperMVC.Models
+@model IEnumerable<Person>
+@foreach (var item in Model)
+{
+    <tr>
+        <td>@item.ID</td>
+        <td>@item.Name</td>
+        <td>@item.Gender</td>
+        <td>@item.DOB</td>
+        <td>@item.Address</td>
+        <td>@item.Role</td>
+    </tr>
+}
+@if (Model.Count() == 0)
+{
+    <tr>
+        <td>
+            <label class="label label-danger">Nobody have been role is: @ViewData["Roleselected"]</label>
+        </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+}
