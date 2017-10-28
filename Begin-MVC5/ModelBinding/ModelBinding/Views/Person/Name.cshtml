@@ -1,0 +1,28 @@
+﻿@model string[]
+@{
+    ViewBag.Title = "Name";
+}
+
+<h2>Name</h2>
+@if (Model.Length == 0)
+{
+    using (Html.BeginForm())
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            <div class="row">
+                <label>@(i + 1):</label>
+                @Html.TextBox("names", "", new { @class = "form-control" })
+            </div>
+        }
+        <button class="btn btn-success">Submit</button>
+    }
+}
+else
+{
+    foreach (var item in Model)
+    {
+        <label class="label label-default">@item</label>
+    }
+    @Html.ActionLink("Back", "Name")
+}

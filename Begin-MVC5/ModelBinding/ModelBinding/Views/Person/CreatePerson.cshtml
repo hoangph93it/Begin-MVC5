@@ -1,0 +1,60 @@
+﻿@model ModelBinding.Models.Person
+@{
+    ViewBag.Title = "CreatePerson";
+}
+
+<h2>CreatePerson</h2>
+@*@using (Html.BeginForm())
+    {
+        <div class="row">
+            @Html.LabelFor(p => p.ID):@Html.EditorFor(p => p.ID, new { @disable = true, @class = "form-control" })
+        </div>
+        <div class="row">
+            @Html.LabelFor(p => p.Name):@Html.EditorFor(p => p.Name, new { @class = "form-control" })
+        </div>
+        <div class="row">
+            @Html.LabelFor(p => p.DOB):@Html.EditorFor(p => p.DOB, new { @class = "form-control" })
+        </div>
+        <div class="row">
+            @Html.LabelFor(p => p.Gender):@Html.EnumDropDownListFor(p => p.Gender, new { @class = "form-control" })
+        </div>
+        <div class="row">
+            @Html.LabelFor(p => p.Address.City):@Html.EditorFor(p => p.Address.City, new { @class = "form-control" })
+        </div>
+        <div class="row">
+            @Html.LabelFor(p => p.Address.Country):@Html.EditorFor(p => p.Address.Country, new { @class = "form-control" })
+        </div>
+        <div class="row">
+            @Html.LabelFor(p => p.Role):@Html.EnumDropDownListFor(p => p.Role, new { @class = "form-control" })
+        </div>
+        <div class="row">
+            <button class="btn btn-success" type="submit">Submit</button>
+        </div>
+    }*@
+@using (Html.BeginForm("DisplaySummary", "Person"))
+{
+    <div class="row">
+        <label>ID:</label> @Html.EditorFor(p => p.ID, new { @disable = true, @class = "form-control" })
+    </div>
+    <div class="row">
+        <label>Name:</label>@Html.EditorFor(p => p.Name, new { @class = "form-control" })
+    </div>
+    <div class="row">
+        <label>Date of Birth:</label>@Html.EditorFor(p => p.DOB, new { @class = "form-control" })
+    </div>
+    <div class="row">
+        <label>Gender:</label> @Html.EnumDropDownListFor(p => p.Gender, new { @class = "form-control" })
+    </div>
+    <div class="row">
+        <label>City:</label> @Html.EditorFor(p => p.Address.City, new { @class = "form-control" })
+    </div>
+    <div class="row">
+        <label>Country:</label> @Html.EditorFor(p => p.Address.Country, new { @class = "form-control" })
+    </div>
+    <div class="row">
+        <label>Role:</label>@Html.EnumDropDownListFor(p => p.Role, new { @class = "form-control" })
+    </div>
+    <div class="row">
+        <button class="btn btn-success" type="submit">Submit</button>
+    </div>
+}
