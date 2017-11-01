@@ -6,18 +6,19 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ModelValidation.Models
 {
+    [FluentValidation.Attributes.Validator(typeof(UserModelValidator))]
     public class UserModel
     {
-        [Required(ErrorMessage = "Please enter name")]
+        //[Required(ErrorMessage = "Please enter name")]
         [Display(Name = "Name")]
         public string Name { get; set; }
-        [Required(ErrorMessage = "Please enter email")]
+        //[Required(ErrorMessage = "Please enter email")]
         [Display(Name = "Email")]
-        [RegularExpression(@"^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$", ErrorMessage = "Please enter correct email address.")]
+        //[RegularExpression(@"^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$", ErrorMessage = "Please enter correct email address.")]
         public string Email { get; set; }
-        [Required(ErrorMessage = "Please enter phone number.")]
+        //[Required(ErrorMessage = "Please enter phone number.")]
         [Display(Name = "Phone Number")]
-        [StringLength(10, ErrorMessage = "The phone must be contains 10 characters")]
+        //[StringLength(11, ErrorMessage = "The phone must be contains 11 characters")]
         public string PhoneNo { get; set; }
     }
 }

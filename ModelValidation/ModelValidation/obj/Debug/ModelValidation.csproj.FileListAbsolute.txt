@@ -51,3 +51,7 @@ D:\Document\MVC\Begin-MVC5\ModelValidation\ModelValidation\bin\WebGrease.dll
 D:\Document\MVC\Begin-MVC5\ModelValidation\ModelValidation\bin\Antlr3.Runtime.pdb
 D:\Document\MVC\Begin-MVC5\ModelValidation\ModelValidation\bin\Newtonsoft.Json.xml
 D:\Document\MVC\Begin-MVC5\ModelValidation\ModelValidation\bin\System.Web.Optimization.xml
+D:\Document\MVC\Begin-MVC5\ModelValidation\ModelValidation\bin\FluentValidation.dll
+D:\Document\MVC\Begin-MVC5\ModelValidation\ModelValidation\bin\FluentValidation.Mvc.dll
+D:\Document\MVC\Begin-MVC5\ModelValidation\ModelValidation\bin\FluentValidation.xml
+D:\Document\MVC\Begin-MVC5\ModelValidation\ModelValidation\bin\FluentValidation.Mvc.xml
