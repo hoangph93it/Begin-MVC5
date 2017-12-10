@@ -7,6 +7,7 @@ namespace CallCenterApp.Models
 {
     public class Employees
     {
+        public int ID { get; set; }
         public string EmployeeID { get; set; }
         public string Name { get; set; }
         public string DOB { get; set; }

@@ -27,6 +27,7 @@ namespace CallCenterApp.DataAccess
                 {
                     lst.Add(new Employees
                     {
+                        ID = Int32.Parse(rdr["ID"].ToString()),
                         EmployeeID = rdr["EmployeeID"].ToString(),
                         Name = rdr["Name"].ToString(),
                         DOB = rdr["DOB"].ToString(),
@@ -48,6 +49,7 @@ namespace CallCenterApp.DataAccess
                 con.Open();
                 SqlCommand com = new SqlCommand("SP_INSERT_UPDATE_EMPLOYEE", con);
                 com.CommandType = System.Data.CommandType.StoredProcedure;
+                com.Parameters.AddWithValue("@ID", emp.ID);
                 com.Parameters.AddWithValue("@EmployeeID", emp.EmployeeID);
                 com.Parameters.AddWithValue("@Name", emp.Name);
                 com.Parameters.AddWithValue("@DOB", emp.DOB);
@@ -69,6 +71,7 @@ namespace CallCenterApp.DataAccess
                 con.Open();
                 SqlCommand com = new SqlCommand("SP_INSERT_UPDATE_EMPLOYEE", con);
                 com.CommandType = System.Data.CommandType.StoredProcedure;
+                com.Parameters.AddWithValue("@ID", emp.ID);
                 com.Parameters.AddWithValue("@EmployeeID", emp.EmployeeID);
                 com.Parameters.AddWithValue("@Name", emp.Name);
                 com.Parameters.AddWithValue("@DOB", emp.DOB);

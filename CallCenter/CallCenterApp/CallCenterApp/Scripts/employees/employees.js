@@ -1,5 +1,6 @@
 ﻿/// <reference path="../jquery-3.2.1.js" />
 /// <reference path="../jquery.toast.js" />
+/// <reference path="../jquery.unobtrusive-ajax.js" />
 $(document).ready(function () {
     loadEmployees();
 })
@@ -14,6 +15,7 @@ function loadEmployees() {
             var html = '';
             $.each(result, function myfunction(key, item) {
                 html += '<tr>';
+                html += '<td>' + item.ID + '</td>';
                 html += '<td>' + item.EmployeeID + '</td>';
                 html += '<td>' + item.Name + '</td>';
                 html += '<td>' + item.DOB + '</td>';
@@ -21,6 +23,7 @@ function loadEmployees() {
                 html += '<td>' + item.StartDate + '</td>';
                 html += '<td>' + item.EndDate + '</td>';
                 html += '<td>' + item.DepartmentID + '</td>';
+                html += '</tr>';
             });
             $('.tbody').html(html);
         },
@@ -37,19 +40,16 @@ function loadEmployees() {
 }
 //Add employees
 function insertEmployees() {
-    var res = validate();
-    if (res == false) {
-        return false;
-    }
     debugger
     var empObj = {
-        EmployeeID: $('#EmployeeID').val(),
-        Name: $('#Name').val(),
-        DOB: $('#DOB').val(),
-        Gender: $('#Gender').val(),
-        StartDate: $('#StartDate').val(),
-        EndDate: $('#EndDate').val(),
-        DepartmentID: $('#DepartmentID').val()
+        ID: $('#emp_code').val(),
+        EmployeeID: $('#emp_id').val(),
+        Name: $('#emp_name').val(),
+        DOB: $('#emp_dob').val(),
+        Gender: $('#emp_gender').val(),
+        StartDate: $('#emp_startdate').val(),
+        EndDate: $('#emp_endate').val(),
+        DepartmentID: $('#emp_depart').val()
     };
     debugger
     $.ajax({
@@ -90,42 +90,42 @@ function validate() {
     else {
         $('#EmployeeID').css('border-color', 'lightgrey');
     }
-    if ($('#Name').val() == "" ) {
+    if ($('#Name').val() == "") {
         $('#Name').css('border-color', 'Red');
         isValid = false;
     }
     else {
         $('#Name').css('border-color', 'lightgrey');
     }
-    if ($('#DOB').val() ==  "") {
+    if ($('#DOB').val() == "") {
         $('#DOB').css('border-color', 'Red');
         isValid = false;
     }
     else {
         $('#DOB').css('border-color', 'lightgrey');
     }
-    if ($('#Gender').val() == "" ) {
+    if ($('#Gender').val() == "") {
         $('#Gender').css('border-color', 'Red');
         isValid = false;
     }
     else {
         $('#Gender').css('border-color', 'lightgrey');
     }
-    if ($('#StartDate').val() ==  "") {
+    if ($('#StartDate').val() == "") {
         $('#StartDate').css('border-color', 'Red');
         isValid = false;
     }
     else {
         $('#StartDate').css('border-color', 'lightgrey');
     }
-    if ($('#EndDate').val() =="" ) {
+    if ($('#EndDate').val() == "") {
         $('#EndDate').css('border-color', 'Red');
         isValid = false;
     }
     else {
         $('#EndDate').css('border-color', 'lightgrey');
     }
-    if ($('#DepartmentID').val() == "" ) {
+    if ($('#DepartmentID').val() == "") {
         $('#DepartmentID').css('border-color', 'Red');
         isValid = false;
     }

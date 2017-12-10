@@ -206,7 +206,7 @@ BEGIN
 FROM dbo.VI_REPORT_CALL re_call
 GROUP BY re_call.EmployeeID
 	,re_call.[Total call]
-	,re_call.[Total call answered]
+	,re_call.[Total call a nswered]
 	,re_call.[Total call busy]
 	,re_call.[Total call no answed];
 END;
@@ -275,12 +275,13 @@ BEGIN
 END;
 --Viết Store thêm mới, chỉnh sửa nhân viên
 CREATE PROCEDURE SP_INSERT_UPDATE_EMPLOYEE (
-	@EmployeeID NCHAR(10)
+	 @ID INTEGER
+	,@EmployeeID NCHAR(10)
 	,@Name NVARCHAR(50)
-	,@DOB DATE
+	,@DOB NCHAR(10)
 	,@Gender NCHAR(10)
-	,@StartDate DATE
-	,@EndDate DATE
+	,@StartDate NCHAR(10)
+	,@EndDate NCHAR(10)
 	,@DepartmentID NCHAR(10)
 	,@Action VARCHAR(10)
 	)
@@ -289,7 +290,7 @@ BEGIN
 	--Thêm mới nhân viên
 	IF @Action = 'INSERT'
 	BEGIN
-		INSERT INTO Employees (
+		INSERT INTO Employees(
 			EmployeeID
 			,Name
 			,DOB
@@ -312,13 +313,15 @@ BEGIN
 	IF @Action='UPDATE'
 	BEGIN
 		UPDATE Employees
-		SET EmployeeID = @EmployeeID
+		SET 
+			EmployeeID = @EmployeeID
 			,Name = @Name
 			,DOB = @DOB
 			,Gender = @Gender
 			,StartDate = @StartDate
 			,EndDate = @EndDate
-			,DepartmentID = @DepartmentID;
+			,DepartmentID = @DepartmentID
+		 WHERE ID=@ID;
 	END;
 END;
 --Viết Store xóa một nhân viên
@@ -329,3 +332,11 @@ BEGIN
 	FROM Employees
 	WHERE EmployeeID = @EmployeeID;
 END;
+---
+ALTER TABLE Employees
+ADD CONSTRAINT PK_ID_EMPID PRIMARY KEY(ID, EmployeeID)
+---
+ALTER TABLE CallDetail
+   ADD CONSTRAINT FK_ID_EMPID_CALL
+   FOREIGN KEY(Id_Emp, EmployeeID)
+   REFERENCES Employees(ID, EmployeeID)

@@ -20,7 +20,8 @@ namespace CallCenterApp.App_Start
                 "~/Scripts/employees/employees.js",
                 "~/Scripts/moment.min.js",
                 "~/Scripts/moment-with-locales.js",
-                "~/Scripts/bootstrap-datetimepicker.js"));
+                "~/Scripts/bootstrap-datetimepicker.js",
+                "~/Scripts/jquery.unobtrusive-ajax.js"));
             bundles.Add(new StyleBundle("~/Content/css").Include(
                 "~/Content/home.css",
                 "~/Content/bootstrap.min.css",
