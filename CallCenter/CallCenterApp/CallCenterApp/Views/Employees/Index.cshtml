@@ -19,6 +19,8 @@
             <th>Start Date</th>
             <th>End Date</th>
             <th>Department</th>
+            <th>Edit</th>
+            <th>Delete</th>
         </tr>
     </thead>
     <tbody class="tbody"></tbody>
@@ -83,7 +85,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" id="btnAdd" onclick="insertEmployees();"><i class="material-icons">add_circle</i>&nbsp; <span>Add</span></button>
-                <button type="button" class="btn btn-success" id="btnUpdate" onclick="Update();" disabled><i class="material-icons">update</i>&nbsp;<span>Update</span></button>
+                <button type="button" class="btn btn-success btn-hide" id="btnUpdate" onclick="Update();"><i class="material-icons">update</i>&nbsp;<span>Update</span></button>
                 <button type="button" class="btn btn-default" data-dismiss="modal"><i class="material-icons">close</i>&nbsp;<span>Close</span></button>
             </div>
         </div>

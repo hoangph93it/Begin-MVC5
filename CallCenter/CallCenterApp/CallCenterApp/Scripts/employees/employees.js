@@ -22,7 +22,9 @@ function loadEmployees() {
                 html += '<td>' + item.Gender + '</td>';
                 html += '<td>' + item.StartDate + '</td>';
                 html += '<td>' + item.EndDate + '</td>';
-                html += '<td>' + item.DepartmentID + '</td>';
+                html += '<td>' + item.Id_Depart + '</td>';
+                html += '<td><a class="btn btn-info btn-sm" onclick="getEmpByID(' + item.EmployeeID + ');"><span class="glyphicon glyphicon-edit"></span> Edit</a></td>';
+                html += '<td><a class="btn btn-danger btn-sm" onclick="return deleteEmpByID(' + item.EmployeeID + ')"><span class="glyphicon glyphicon-remove"></span> Delete</a></td>';
                 html += '</tr>';
             });
             $('.tbody').html(html);
@@ -49,7 +51,7 @@ function insertEmployees() {
         Gender: $('#emp_gender').val(),
         StartDate: $('#emp_startdate').val(),
         EndDate: $('#emp_endate').val(),
-        DepartmentID: $('#emp_depart').val()
+        Id_Depart: $('#emp_depart').val()
     };
     debugger
     $.ajax({
@@ -79,6 +81,46 @@ function insertEmployees() {
             })
         }
     })
+}
+//Get employee by ID
+function getEmpByID(empID) {
+    $('#emp_id').css('border-color', 'lightgrey');
+    $('#emp_name').css('border-color', 'lightgrey');
+    $('#emp_dob').css('border-color', 'lightgrey');
+    $('#emp_gender').css('border-color', 'lightgrey');
+    $('#emp_startdate').css('border-color', 'lightgrey');
+    $('#emp_endate').css('border-color', 'lightgrey');
+    $('#emp_depart').css('border-color', 'lightgrey');
+    $.ajax({
+        url: '/Employees/GetById/' + empID,
+        data: empID,
+        type: 'GET',
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            $('#emp_code').val(result.ID),
+            $('#emp_id').val(result.EmployeeID),
+            $('#emp_name').val(result.Name),
+            $('#emp_dob').val(result.DOB),
+            $('#emp_gender').val(result.Gender),
+            $('#emp_startdate').val(result.StartDate),
+            $('#emp_endate').val(result.EndDate),
+            $('#emp_depart').val(result.Id_Depart)
+            $('#modal_employees').modal('show');
+            $('#btnUpdate').show();
+            $('#btnAdd').hide();
+        },
+        error: function (errormessage) {
+            $.toast({
+                heading: 'Thông báo',
+                text: 'Có lỗi xảy ra trong quá trình xử lý!',
+                showHideTransition: 'fade',
+                icon: 'error',
+                position: 'top-right'
+            })
+        }
+    });
+    return false;
 }
 //Valdidation using jquery
 function validate() {

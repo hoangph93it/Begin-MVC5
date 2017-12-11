@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Data;
 using System.Configuration;
 using CallCenterApp.Models;
 using System.Data.SqlClient;
@@ -17,11 +18,11 @@ namespace CallCenterApp.DataAccess
         public List<Employees> ListAllEmployee()
         {
             List<Employees> lst = new List<Employees>();
-            using (SqlConnection con= new SqlConnection(constr))
+            using (SqlConnection con = new SqlConnection(constr))
             {
                 con.Open();
                 SqlCommand com = new SqlCommand("SP_LIST_ALL_EMPLOYEE", con);
-                com.CommandType = System.Data.CommandType.StoredProcedure;
+                com.CommandType = CommandType.StoredProcedure;
                 SqlDataReader rdr = com.ExecuteReader();
                 while (rdr.Read())
                 {
@@ -34,7 +35,7 @@ namespace CallCenterApp.DataAccess
                         Gender = rdr["Gender"].ToString(),
                         StartDate = rdr["StartDate"].ToString(),
                         EndDate = rdr["EndDate"].ToString(),
-                        DepartmentID = rdr["DepartmentID"].ToString()
+                        Id_Depart = rdr["Id_Depart"].ToString()
                     });
                 }
                 return lst;
@@ -48,7 +49,7 @@ namespace CallCenterApp.DataAccess
             {
                 con.Open();
                 SqlCommand com = new SqlCommand("SP_INSERT_UPDATE_EMPLOYEE", con);
-                com.CommandType = System.Data.CommandType.StoredProcedure;
+                com.CommandType = CommandType.StoredProcedure;
                 com.Parameters.AddWithValue("@ID", emp.ID);
                 com.Parameters.AddWithValue("@EmployeeID", emp.EmployeeID);
                 com.Parameters.AddWithValue("@Name", emp.Name);
@@ -56,7 +57,7 @@ namespace CallCenterApp.DataAccess
                 com.Parameters.AddWithValue("@Gender", emp.Gender);
                 com.Parameters.AddWithValue("@StartDate", emp.StartDate);
                 com.Parameters.AddWithValue("@EndDate", emp.EndDate);
-                com.Parameters.AddWithValue("@DepartmentID", emp.DepartmentID);
+                com.Parameters.AddWithValue("@Id_Depart", emp.Id_Depart);
                 com.Parameters.AddWithValue("@Action", "INSERT");
                 i = com.ExecuteNonQuery();
             }
@@ -70,7 +71,7 @@ namespace CallCenterApp.DataAccess
             {
                 con.Open();
                 SqlCommand com = new SqlCommand("SP_INSERT_UPDATE_EMPLOYEE", con);
-                com.CommandType = System.Data.CommandType.StoredProcedure;
+                com.CommandType = CommandType.StoredProcedure;
                 com.Parameters.AddWithValue("@ID", emp.ID);
                 com.Parameters.AddWithValue("@EmployeeID", emp.EmployeeID);
                 com.Parameters.AddWithValue("@Name", emp.Name);
@@ -78,7 +79,7 @@ namespace CallCenterApp.DataAccess
                 com.Parameters.AddWithValue("@Gender", emp.Gender);
                 com.Parameters.AddWithValue("@StartDate", emp.StartDate);
                 com.Parameters.AddWithValue("@EndDate", emp.EndDate);
-                com.Parameters.AddWithValue("@DepartmentID", emp.DepartmentID);
+                com.Parameters.AddWithValue("@DepartmentID", emp.Id_Depart);
                 com.Parameters.AddWithValue("@Action", "UPDATE");
                 i = com.ExecuteNonQuery();
             }
@@ -92,7 +93,7 @@ namespace CallCenterApp.DataAccess
             {
                 con.Open();
                 SqlCommand com = new SqlCommand("SP_DELETE_EMPLOYEE", con);
-                com.CommandType = System.Data.CommandType.StoredProcedure;
+                com.CommandType = CommandType.StoredProcedure;
                 com.Parameters.AddWithValue("@EmployeeID", empID);
                 i = com.ExecuteNonQuery();
             }

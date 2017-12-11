@@ -14,6 +14,6 @@ namespace CallCenterApp.Models
         public string Gender { get; set; }
         public string StartDate { get; set; }
         public string EndDate { get; set; }
-        public string DepartmentID { get; set; }
+        public string Id_Depart { get; set; }
     }
 }

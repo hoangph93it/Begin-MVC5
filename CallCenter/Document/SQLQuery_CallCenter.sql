@@ -275,15 +275,15 @@ BEGIN
 END;
 --Viết Store thêm mới, chỉnh sửa nhân viên
 CREATE PROCEDURE SP_INSERT_UPDATE_EMPLOYEE (
-	 @ID INTEGER
-	,@EmployeeID NCHAR(10)
-	,@Name NVARCHAR(50)
-	,@DOB NCHAR(10)
-	,@Gender NCHAR(10)
-	,@StartDate NCHAR(10)
-	,@EndDate NCHAR(10)
-	,@DepartmentID NCHAR(10)
-	,@Action VARCHAR(10)
+	 @ID INTEGER = NULL
+	,@EmployeeID NVARCHAR(50)= NULL
+	,@Name NVARCHAR(50)= NULL
+	,@DOB NVARCHAR(50)= NULL
+	,@Gender NVARCHAR(50)= NULL
+	,@StartDate NVARCHAR(50)= NULL
+	,@EndDate NVARCHAR(50)= NULL
+	,@Id_Depart NVARCHAR(50)= NULL
+	,@Action varchar(10)= NULL
 	)
 AS
 BEGIN
@@ -297,7 +297,7 @@ BEGIN
 			,Gender
 			,StartDate
 			,EndDate
-			,DepartmentID
+			,Id_Depart
 			)
 		VALUES (
 			@EmployeeID
@@ -306,7 +306,7 @@ BEGIN
 			,@Gender
 			,@StartDate
 			,@EndDate
-			,@DepartmentID
+			,@Id_Depart
 			);
 	END;
 	--Chỉnh sửa nhân viên
@@ -320,7 +320,7 @@ BEGIN
 			,Gender = @Gender
 			,StartDate = @StartDate
 			,EndDate = @EndDate
-			,DepartmentID = @DepartmentID
+			,Id_Depart = Id_Depart
 		 WHERE ID=@ID;
 	END;
 END;
